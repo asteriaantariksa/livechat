@@ -11,7 +11,6 @@ const bannedWords = [
   "anjing", "kontol", "memek", "tolol", "goblok", "ngentot"
 ];
 
-
 function containsBadWord(text) {
     const lower = text.toLowerCase();
     return bannedWords.some(word => lower.includes(word));
@@ -69,15 +68,15 @@ io.on('connection', (socket) => {
                 return;
             }
         
-        if (countWords(text) > MAX_WORDS) {
-                socket.emit("max_word_exceeded");
-                return;
-            }
+            if (countWords(text) > MAX_WORDS) {
+                    socket.emit("max_word_exceeded");
+                    return;
+                }
 
-        if (containsBadWord(text)) {
-                socket.emit("bad_word");
-                return;
-            }
+            if (containsBadWord(text)) {
+                    socket.emit("bad_word");
+                    return;
+                }
         }
 
         // simpan username ke socket + set user aktif
@@ -98,7 +97,7 @@ io.on('connection', (socket) => {
         messageHistory.push(messageData);
 
         // Simpan 7 pesan terakhir
-        if (messageHistory.length > 7) messageHistory.shift();
+        if (messageHistory.length > 5) messageHistory.shift();
         
         io.emit('update_messages', messageHistory);
 
