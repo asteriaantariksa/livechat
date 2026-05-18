@@ -38,6 +38,11 @@
            
         }
 
+        div{
+            max-height: 950px;
+            z-index: -4;
+        }
+
         #message-container {
             width: 90%;
             max-width: 550px;
@@ -145,21 +150,21 @@
 </head>
 
 <body>
-    <header class="header">
+    <!-- <header class="header">
+        <h1 class="t">    </h1>
+
         <h1><span class="live-dot"></span>
             Live
         </h1>
-
-        <h1 class="t">    </h1>
-    </header>
+    </header> -->
 
     <div id="message-container">
         <div class="empty">Menunggu pesan...</div>
     </div>
 
-    <a href="/send" target="_blank" class="btn-link">
+    <!-- <a href="/send" target="_blank" class="btn-link">
         Kirim Pesan
-    </a>
+    </a> -->
 
    <script src="/socket.io/socket.io.js"></script>
 
